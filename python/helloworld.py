@@ -3,8 +3,10 @@
 # Created by zachary williams
 # Script prints Hello world!
 
+name = input("What is your name?")
+
 def main():
-  print("Hello World")
+  print("Hello", name)
 
 if __name__ == "__main__":
   main()
