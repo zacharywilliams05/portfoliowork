@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# By Zachary Williams
+# Finally adding a description
+# 5/3/2021
 import random
 import string
 
