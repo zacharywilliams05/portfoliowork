@@ -35,14 +35,11 @@ child.expect('.*[Y/n]')
 child.sendline('\r')
 
 print('User successfully added')
-print('Installing MariaDB')
+print('Installing Apache')
 
 child.expect('.*\$')
-child.sendline('sudo apt update')
-#maybe we don't need another password line here?
-child.expect('.*\$')
-child.sendline('sudo apt apache2')
+child.sendline('sudo apt install apache2')
 child.expect('.*[Y/n]')
 child.sendline('y')
 
-print('MariaDB successfully installed')
+print('Apache successfully installed')
