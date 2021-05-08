@@ -5,7 +5,7 @@
 
 import pexpect
 
-child = pexpect.spawn('ssh justincase@192.168.0.121')
+child = pexpect.spawn('ssh justincase@192.168.0.111')
 child.expect('.*password:')
 child.sendline('Password01')
 
@@ -41,7 +41,7 @@ child.expect('.*\$')
 child.sendline('sudo apt update')
 #maybe we don't need another password line here?
 child.expect('.*\$')
-child.sendline('sudo apt install mariadb-server')
+child.sendline('sudo apt apache2')
 child.expect('.*[Y/n]')
 child.sendline('y')
 
