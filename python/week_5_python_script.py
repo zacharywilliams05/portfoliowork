@@ -39,7 +39,7 @@ print('Installing MariaDB')
 
 child.expect('.*\$')
 child.sendline('sudo apt update')
-child.expect('.*justincase: ')
+child.expect('[sudo] password for justincase: ')
 child.sendline('Password01')
 child.expect('.*\$')
 child.sendline('sudo apt install mariadb-server')
