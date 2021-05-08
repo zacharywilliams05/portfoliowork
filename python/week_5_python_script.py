@@ -39,9 +39,7 @@ print('Installing MariaDB')
 
 child.expect('.*\$')
 child.sendline('sudo apt update')
-child.expect('[sudo] password for justincase: ')
-print('We got passed the hard part')
-child.sendline('Password01')
+#maybe we don't need another password line here?
 child.expect('.*\$')
 child.sendline('sudo apt install mariadb-server')
 child.expect('.*[Y/n]')
