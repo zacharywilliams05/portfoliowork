@@ -10,7 +10,7 @@ child.expect('.*password:')
 child.sendline('Password01')
 
 print('SSH login successful')
-
+print('Adding User')
 #adding a user
 
 child.expect('.*\$')
@@ -35,3 +35,13 @@ child.expect('.*[Y/n]')
 child.sendline('\r')
 
 print('User successfully added')
+print('Installing MariaDB')
+
+child.expect('.*\$')
+child.sendline('sudo apt update')
+child.expect('.*justincase:')
+child.sendline('Password01')
+child.expect('.*\$')
+child.sendline('sudo apt install mariadb-server')
+child.expect('.*[Y/n]')
+child.sendline('y')
