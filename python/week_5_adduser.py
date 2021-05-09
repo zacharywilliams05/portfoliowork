@@ -6,7 +6,7 @@
 
 #import
 from pexpect import pxssh
-db_ip = ['192.168.0.121']
+db_ip = ['192.168.0.121', '192.168.0.122']
 
 #create for loop
 for i in db_ip:
