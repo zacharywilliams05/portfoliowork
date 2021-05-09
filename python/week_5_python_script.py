@@ -38,6 +38,8 @@ print('User successfully added')
 print('Installing Apache')
 
 child.expect('.*\$')
+child.sendline('sudo apt update')
+child.expect('.*\$')
 child.sendline('sudo apt install apache2')
 child.expect('.*[Y/n]')
 child.sendline('y')

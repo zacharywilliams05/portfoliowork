@@ -31,6 +31,30 @@ for i in db_ip:
     #enable auto-start apache
     session.prompt()
     session.sendline('sudo systemctl enable mariadb.service')
-
     print('Installation successful!')
+
+    #add new user
+    session.prompt()
+    session.sendline('sudo adduser zackwilliams')
+    session.prompt()
+    session.sendline('dackarypilliams')
+    session.prompt()
+    session.sendline('dackarypilliams')
+    session.prompt()
+    session.sendline('Zack Williams')
+    session.prompt()
+    session.sendline('42')
+    session.prompt()
+    session.sendline('2533333333')
+    session.prompt()
+    session.sendline('3603333333')
+    session.prompt()
+    session.sendline('Worker')
+    session.prompt()
+    session.sendline('y')
+    print('User added')
+
     #exit
+    session.prompt()
+    session.sendline('exit')
+    print('Exited your session.')
