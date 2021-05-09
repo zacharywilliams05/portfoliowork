@@ -24,4 +24,6 @@ session.sendline('y')
 #enable auto-start apache
 session.prompt()
 session.sendline('sudo systemctl enable apache2')
+
+print('Everything finished successfully!')
 #exit
