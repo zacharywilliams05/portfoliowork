@@ -9,7 +9,7 @@ from pexpect import pxssh
 db_ip = ['192.168.0.121', '192.168.0.122']
 web_ip = ['192.168.0.111', '192.168.0.112']
 
-#create for loop
+#create for loop web servers
 for i in web_ip:
     #login
     session = pxssh.pxssh()
@@ -71,6 +71,7 @@ for i in web_ip:
     session.sendline('exit')
     print('Exited your session.')
 
+#create loop for db servers
 for i in db_ip:
     #login
     session = pxssh.pxssh()
