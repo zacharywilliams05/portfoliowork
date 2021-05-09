@@ -9,7 +9,7 @@ from pexpect import pxssh
 db_ip = ['192.168.0.121', '192.168.0.122']
 
 #create for loop
-for i in web_ip:
+for i in db_ip:
     #login
     session = pxssh.pxssh()
     session.login(i,'justincase', 'Password01')
@@ -32,5 +32,5 @@ for i in web_ip:
     session.prompt()
     session.sendline('sudo systemctl enable mariadb.service')
 
-    print('Everything finished successfully!')
+    print('Installation successful!')
     #exit
