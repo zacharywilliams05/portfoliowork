@@ -9,7 +9,7 @@ from pexpect import pxssh
 web_ip = ['192.168.0.111', '192.168.0.112']
 
 #create for loop
-for i in range(web_ip):
+for i in web_ip:
     #login
     session = pxssh.pxssh()
     session.login(i,'justincase', 'Password01')
