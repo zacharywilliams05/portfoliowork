@@ -35,9 +35,6 @@ for i in web_ip:
 
     print('Installation successful')
 
-    #add user
-
-        #add new user
     #add new user
     session.prompt()
     session.sendline('sudo adduser zackwilliams')
@@ -96,7 +93,7 @@ for i in db_ip:
     session.sendline('sudo systemctl enable mariadb.service')
     print('Installation successful!')
 
-#add new user
+    #add new user
     session.prompt()
     session.sendline('sudo adduser zackwilliams')
     print('Sent adduser command')
