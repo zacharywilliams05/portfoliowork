@@ -1,0 +1,7 @@
+---
+- hosts: linux
+  tasks:
+  - name: Create user (zwilliams/HomeworkDone!)
+    user:
+      name: zwilliams
+      passowrd: HomeworkDone!
