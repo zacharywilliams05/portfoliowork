@@ -4,5 +4,5 @@
   - name: Create user (zwilliams/HomeworkDone!)
     user:
       name: zwilliams
-      passowrd: HomeworkDone!
+      password: HomeworkDone!
     become: yes
