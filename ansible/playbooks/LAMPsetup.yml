@@ -6,3 +6,8 @@
       name: zwilliams
       password: HomeworkDone!
     become: yes
+  - name: Create second user (zwilliams2/User2)
+    become: yes
+    user:
+      name: zwilliams2
+      password: {{ 'User2' | password_hash('sha512') }}
