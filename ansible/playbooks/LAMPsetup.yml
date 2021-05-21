@@ -20,6 +20,7 @@
 - hosts: db
   tasks:
   - name: Running update as a seperate step
+    become: yes
     apt:
       update_cache: yes
   - name: Install MariaDB
