@@ -22,6 +22,8 @@
   - name: Install MariaDB
     become: yes
     apt:
+      update_cache: yes
+    apt:
       name: mariadb-server
       state: present
   - name: Enable mariaDB (set to auto-start)
