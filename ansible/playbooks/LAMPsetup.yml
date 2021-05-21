@@ -4,10 +4,15 @@
   - name: Create user (zwilliams/HomeworkDone!)
     user:
       name: zwilliams
-      password: HomeworkDone!
+      password: HomeworkDone!     #No password hash
     become: yes
   - name: Create second user (zwilliams2/User2)
     become: yes
     user:
       name: zwilliams2
-      password: {{ 'User2' | password_hash('sha512') }}
+      password: "{{ 'User2' | password_hash('sha512') }}"   #This will hash our password
+  - name: Create third user (zwilliams3/User3)
+    become: yes
+    user:
+      name: zwilliams3
+      password: '$6$bTXcBI4qhW2tVao8$pAV0rJmiEFHqdmuc5XvgTq0YvYZljpx7p84jGDevtpAKlrnBcyeRVn9cqsE/BG/muAH1/7mAicLb//Rz2qDJT1'
