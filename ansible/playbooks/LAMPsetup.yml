@@ -19,10 +19,12 @@
 
 - hosts: db
   tasks:
+  - name: Running update as a seperate step
+    apt:
+      update_cache: yes
   - name: Install MariaDB
     become: yes
     apt:
-      update_cache: yes
       name: mariadb-server
       state: present
   - name: Enable mariaDB (set to auto-start)
