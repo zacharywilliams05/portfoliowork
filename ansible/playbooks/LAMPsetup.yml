@@ -16,6 +16,7 @@
     user:
       name: zwilliams3
       password: '$6$bTXcBI4qhW2tVao8$pAV0rJmiEFHqdmuc5XvgTq0YvYZljpx7p84jGDevtpAKlrnBcyeRVn9cqsE/BG/muAH1/7mAicLb//Rz2qDJT1'
+
 - hosts: db
   tasks:
   - name: Install MariaDB
