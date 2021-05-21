@@ -34,3 +34,12 @@
     service:
       name: mariadb
       state: started
+
+- hosts: web
+  tasks:
+  - name: Install apache
+    become: yes
+    apt: name=apache2 state=present
+  - name: Set apache to run
+    become: yes
+    service: name=apache2 state=started enabled=yes
