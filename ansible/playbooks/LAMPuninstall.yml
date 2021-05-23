@@ -6,3 +6,11 @@
     apt:
       name: apache2
       state: absent
+
+- hosts: db
+  tasks:
+  - name: uninstall mariadb
+    become: yes
+    apt:
+      name: mariadb-server
+      state: absent
