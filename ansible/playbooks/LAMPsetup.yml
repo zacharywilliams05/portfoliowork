@@ -6,13 +6,16 @@
       name: zwilliams
       password: HomeworkDone!     #No password hash
     become: yes
+    tags: install
   - name: Create second user (zwilliams2/User2)
     become: yes
+    tags: install
     user:
       name: zwilliams2
       password: "{{ 'User2' | password_hash('sha512') }}"   #This will hash our password
   - name: Create third user (zwilliams3/User3)
     become: yes
+    tags: install
     user:
       name: zwilliams3
       password: '$6$bTXcBI4qhW2tVao8$pAV0rJmiEFHqdmuc5XvgTq0YvYZljpx7p84jGDevtpAKlrnBcyeRVn9cqsE/BG/muAH1/7mAicLb//Rz2qDJT1'
@@ -21,20 +24,24 @@
   tasks:
   - name: Running update as a seperate step
     become: yes
+    tags: install
     apt:
       update_cache: yes
   - name: Install MariaDB
     become: yes
+    tags: install
     apt:
       name: mariadb-server
       state: present
   - name: Enable mariaDB (set to auto-start)
     become: yes
+    tags: install
     service:
       name: mariadb
       enabled: yes
   - name: Start mariadb
     become: yes
+    tags: install
     service:
       name: mariadb
       state: started
@@ -43,7 +50,9 @@
   tasks:
   - name: Install apache
     become: yes
+    tags: install
     apt: name=apache2 state=present
   - name: Set apache to run
     become: yes
+    tags: install
     service: name=apache2 state=started enabled=yes
