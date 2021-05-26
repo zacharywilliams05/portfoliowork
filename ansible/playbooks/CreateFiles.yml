@@ -8,4 +8,4 @@
   - name: Create a web-server file
     file:
       dest: /tmp/ansible/web-serverfile
-      state: touch
+      state: '{{file_state}}'
