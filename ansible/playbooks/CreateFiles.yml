@@ -1,0 +1,7 @@
+---
+- hosts: web
+  tasks:
+  - name: Create a folder in tmp directory
+    file:
+    - dest: /tmp/ansible
+      state: directory
