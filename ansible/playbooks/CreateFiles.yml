@@ -3,5 +3,9 @@
   tasks:
   - name: Create a folder in tmp directory
     file:
-    - dest: /tmp/ansible
+      dest: /tmp/ansible
       state: directory
+  - name: Create a web-server file
+    file:
+      dest: /tmp/ansible/web-serverfile
+      state: touch
