@@ -69,3 +69,57 @@
       become: yes
       ufw:
         state: reloaded
+
+##############################################################
+###Uninstall:
+
+- hosts: linux
+  tasks:
+  - name: Create user (zwilliams/HomeworkDone!)
+    user:
+      name: zwilliams
+      state: absent
+    become: yes
+    tags: uninstall
+  - name: Create second user (zwilliams2/User2)
+    become: yes
+    tags: uninstall
+    user:
+      name: zwilliams2
+      state: absent
+  - name: Create third user (zwilliams3/User3)
+    become: yes
+    tags: uninstall
+    user:
+      name: zwilliams3
+      state: absent
+
+- hosts: db
+  tasks:
+  - name: uninstall MariaDB
+    become: yes
+    tags: uninstall
+    apt:
+      name: mariadb-server
+      state: absent
+
+
+- hosts: web
+  tasks:
+  - name: uninstall apache
+    become: yes
+    tags: uninstall
+    apt: name=apache2 state=absent
+  - name: Configure firewall to close http
+    become: yes
+    ufw:
+      rule: deny
+      port: 80
+      proto: tcp
+    notify:
+      - restart-firewall
+  handlers:
+    - name: restart-firewall
+      become: yes
+      ufw:
+        state: reloaded
