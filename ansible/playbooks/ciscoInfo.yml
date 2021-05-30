@@ -1,0 +1,13 @@
+---
+- hosts: CSR1
+  gather_facts: fasle
+  connection: local
+  tasks:
+  - name: Show run
+    ios_commands:
+      commands:
+      - sh run
+    register: shrun
+  - name: report information
+    debug:
+      var: shrun
