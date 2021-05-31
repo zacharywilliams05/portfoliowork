@@ -1,0 +1,110 @@
+---
+- hosts: csr1
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Update hostname
+    ios_config:
+      lines: hostname {{ inventory_hostname }}
+  - name: Configure interfaces
+    ios_config:
+      lines:
+      - description configured using Ansible playbook
+      - ip address 192.168.51.1 255.255.255.0
+      parents: interface g0/2
+  - name: Configure interfaces
+    ios_config:
+      lines:
+      - description configured using Ansible playbook
+      - ip address 192.168.52.1 255.255.255.0
+      parents: interface g0/3
+  - name: disable DNS lookup
+    ios_system:
+      lookup_enabled: no
+  - name: configure banner
+    ios_banner:
+      banner: login
+      text: |
+        WARNING! Unauthorized access is
+        PROHIBITED!
+      state: present
+  - name: configure OSPF
+    ios_config:
+      lines:
+      - network 192.168.0.0 0.0.0.255 area 0
+      - network 192.168.51.0 0.0.0.255 area 0
+      - network 192.168.52.0 0.0.0.255 area 0
+      parent: router ospf 1
+  - name: set minimum password length, set idle timeout, login block
+    ios_command:
+      commands:
+      - enable
+      - conf t
+      - security passwords min-length 10
+      - enable secret
+      - service password-encryption
+      - line console 0
+      - exec-timeout 5
+      - exit
+      - line vty 0 15
+      - login timeout 5
+      - exit
+      - login block-for 180 attempts 4 within 120
+
+######################################
+
+---
+- hosts: csr1
+  gather_facts: false
+  connection: local
+  tasks:
+  - name: Update hostname
+    ios_config:
+      lines: hostname {{ inventory_hostname }}
+  - name: Configure interfaces
+    ios_config:
+      lines:
+      - description configured using Ansible playbook
+      - ip address 192.168.101.1 255.255.255.0
+      parents: interface g0/2
+  - name: Configure interfaces
+    ios_config:
+      lines:
+      - description configured using Ansible playbook
+      - ip address 192.168.102.1 255.255.255.0
+      parents: interface g0/3
+  - name: disable DNS lookup
+    ios_system:
+      lookup_enabled: no
+  - name: configure banner
+    ios_banner:
+      banner: login
+      text: |
+        WARNING! Unauthorized access is
+        PROHIBITED!
+      state: present
+  - name: configure OSPF
+    ios_config:
+      lines:
+      - network 192.168.0.0 0.0.0.255 area 0
+      - network 192.168.101.0 0.0.0.255 area 0
+      - network 192.168.102.0 0.0.0.255 area 0
+      parent: router ospf 1
+  - name: set minimum password length, set idle timeout, login block
+    ios_command:
+      commands:
+      - enable
+      - conf t
+      - security passwords min-length 10
+      - enable secret
+      - service password-encryption
+      - line console 0
+      - exec-timeout 5
+      - exit
+      - line vty 0 15
+      - login timeout 5
+      - exit
+      - login block-for 180 attempts 4 within 120
+
+
+
