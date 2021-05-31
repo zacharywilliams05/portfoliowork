@@ -1,12 +1,17 @@
 ---
-- hosts: CSR1
-  gather_facts: fasle
+- hosts: csr
+  gather_facts: false
   connection: local
   tasks:
+  - name: ssh login
+    ios_system:
+      username: cisco
+      password: cisco
   - name: Show run
-    ios_commands:
+    ios_command:
+      timeout: 45
       commands:
-      - sh run
+      - show run
     register: shrun
   - name: report information
     debug:

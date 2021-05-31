@@ -5,4 +5,4 @@
   tasks:
   - name: Update hostname
     ios_config:
-      lines: hostname {{ inventory_hostname }}
+      lines: hostname test1

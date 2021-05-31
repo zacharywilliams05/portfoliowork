@@ -1,10 +1,10 @@
 ---
-- hosts: CSR1
-  gather_facts: fasle
+- hosts: csr
+  gather_facts: false
   connection: local
   tasks:
   - name: Show run
-    ios_commands:
+    ios_command:
       commands:
       - en
       - conf t
