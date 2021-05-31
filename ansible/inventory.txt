@@ -26,8 +26,8 @@ db1
 db2
 
 [csr]
-csr1
-csr2
+westcsr1
+eastscsr2
 
 [csr:vars]
 ansbile_ssh_user=cisco
