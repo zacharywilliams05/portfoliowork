@@ -1,6 +1,6 @@
 ---
-- hosts: web1
-gather_facts: false #This will disable the gathering of facts
+- hosts: routers
+  gather_facts: True #This will disable the gathering of facts
   tasks: 
   - name: Report facts
     debug:
