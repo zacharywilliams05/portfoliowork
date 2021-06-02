@@ -25,11 +25,12 @@ web2
 db1
 db2
 
-[csr]
+[routers]
 csr1
 csr2
 
-[csr:vars]
-ansbile_connection=ssh
-ansbile_ssh_user=cisco
-ansbile_ssh_pass=cisco
+[routers:vars]
+ansbile_user=cisco
+ansbile_pass=cisco
+ansbile_connection=network_cli
+ansible_network_os=ios
