@@ -2,7 +2,7 @@
 
 - hosts: web1
     tasks:
-      name: Reboot the machine after 10 minutes
+    - name: Reboot the machine after 10 minutes
       when: ansible_uptime_seconds >= 600
       reboot:
   
