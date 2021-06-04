@@ -1,0 +1,14 @@
+---
+- hosts: routers
+  gather_facts: true
+  connection: local
+  tasks:
+    - name: test connection
+      ios_command:
+        commands:
+        - sh run
+      register: facts
+    - name: confirm connection
+      debug:
+        var: facts
+      
