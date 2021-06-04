@@ -11,4 +11,9 @@
     - name: confirm connection
       debug:
         var: facts
+
+    - name: save backup
+      copy:
+      content: "{{ facts.stdout[0] }}"
+      dest: 'host/justincase/IT385/ansible/backup/show_run_{{ inventory_hostname }}.txt"
       
