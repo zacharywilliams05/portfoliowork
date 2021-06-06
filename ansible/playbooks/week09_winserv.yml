@@ -15,5 +15,12 @@
     win_chocolatey:
       name: 7zip
       state: present
+  - name: install Windows Updates
+    win_updates:
+      category_names: 
+      - CriticalUpdates
+      - SecurityUpdates
+      - UpdateRollups
+
       
 
