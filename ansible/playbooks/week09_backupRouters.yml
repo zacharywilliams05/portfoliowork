@@ -1,0 +1,19 @@
+---
+- hosts: routers
+  gather_facts: true
+  connection: local
+  tasks:
+    - name: test connection
+      ios_command:
+        commands:
+        - sh run
+      register: facts
+    - name: confirm connection
+      debug:
+        var: facts
+
+    - name: save backup
+      copy:
+        content: "{{ facts.stdout[0] }}"
+        dest: "/home/justincase/IT385/ansible/backup/show_run_{{ inventory_hostname }}.txt"
+      
