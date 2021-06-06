@@ -1,7 +1,15 @@
 ---
 
 - hosts: winserv
+  gather_facts: false
   tasks:
-  - win_feature:
+  - name: install IIS
+    win_feature:
       name: Web-Server
       state: present
+  - name: install 7zip
+    win_chocolatey:
+      name: 7zip
+      state: present
+      
+
