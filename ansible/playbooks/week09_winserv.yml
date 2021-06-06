@@ -3,6 +3,10 @@
 - hosts: winserv
   gather_facts: false
   tasks:
+  - name: create user
+    win_user:
+      name: Zachary
+      password: Password01
   - name: install IIS
     win_feature:
       name: Web-Server
