@@ -2,6 +2,6 @@
 
 - hosts: winserv
   tasks:
-  -win_feature:
-    name: Web-Server
-    state: present
+  - win_feature:
+      name: Web-Server
+      state: present
