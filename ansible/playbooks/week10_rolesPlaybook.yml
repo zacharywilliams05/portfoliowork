@@ -1,0 +1,4 @@
+---
+- hosts: csr
+  tasks:
+  - import_tasks: tasks/backupRouters.yml
