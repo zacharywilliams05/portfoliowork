@@ -1,4 +1,5 @@
 ---
-- hosts: csr
+- hosts: routers
+  connection: local
   tasks:
   - import_tasks: tasks/backupRouters.yml
