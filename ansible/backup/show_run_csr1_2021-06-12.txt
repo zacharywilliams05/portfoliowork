@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 1088 bytes
+Current configuration : 1139 bytes
 !
-! Last configuration change at 17:29:27 UTC Sat Jun 12 2021
+! Last configuration change at 17:56:14 UTC Sat Jun 12 2021 by cisco
 !
 version 15.4
 service timestamps debug datetime msec
@@ -77,6 +77,7 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
+ip route 0.0.0.0 0.0.0.0 GigabitEthernet1
 !
 !
 !
