@@ -1,5 +1,5 @@
 ---
 - name: set the default route
-  ios_command:
-    commands:
+  ios_config:
+    lines:
     - ip route 0.0.0.0 0.0.0.0 gigabitEthernet1
