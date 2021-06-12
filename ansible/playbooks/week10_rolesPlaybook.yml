@@ -5,3 +5,4 @@
   - import_tasks: tasks/backupRouters.yml
   - import_tasks: tasks/defaultRoute.yml
   - import_tasks: tasks/setNTP.yml
+  - import_tasks: tasks/setSNMP.yml
