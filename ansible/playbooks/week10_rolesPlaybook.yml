@@ -3,3 +3,4 @@
   connection: local
   tasks:
   - import_tasks: tasks/backupRouters.yml
+  - import_tasks: tasks/defaultRoute.yml
