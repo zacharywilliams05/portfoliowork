@@ -4,5 +4,5 @@
   tasks:
   - import_tasks: tasks/backupRouters.yml
   - import_tasks: tasks/defaultRoute.yml
-  - import_tasks: tasks/setNTP.ym
+  - import_tasks: tasks/setNTP.yml
   - import_tasks: tasks/localPassword.yml
