@@ -1,0 +1,5 @@
+---
+- name: set SNMP
+  ios_config:
+    lines:
+    - host 192.168.0.100 informs version 2c GRCRocks alarms
