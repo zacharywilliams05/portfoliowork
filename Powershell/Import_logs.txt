@@ -1,0 +1,14 @@
+#A tool I write used in actual report creation. I've edited file paths to make it more generic and not reveal confidential information.
+#Create a file called getlogs.txt and add the hostnames of the machines you will grab logs files from. Make sure you have access (run PS as admin).
+
+$computers = get-content “C:\path to your text file with computer host names”
+
+try {
+	foreach ($computer in $computers) {
+		$output = $computer
+#copy logs from remote computer to local file
+	xcopy \\$computer\c$\”location of the log files and any appendage needed” “C:\location of folder you want to copy log files to”
+}
+
+catch { $output }
+
