@@ -1,4 +1,6 @@
-#A tool I write used in actual report creation. I've edited file paths to make it more generic and not reveal confidential information.
+#A tool I wrote used in actual report creation. I've edited file paths to make it more generic and not reveal confidential information.
+#Imports logs files from a list of machines to the local machine. 
+
 #Create a file called getlogs.txt and add the hostnames of the machines you will grab logs files from. Make sure you have access (run PS as admin).
 
 $computers = get-content “C:\path to your text file with computer host names”
