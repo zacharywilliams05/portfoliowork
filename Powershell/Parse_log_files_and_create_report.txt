@@ -1,0 +1,34 @@
+#A tool I wrote used in actual report creation. I've edited file paths to make it more generic and not reveal confidential information.
+#Parses the log files for processes that are causing system alarms (ie when the CPU is taxed to 90% or more alerts of the processes contributing to the high CPU usage are logged)
+
+
+$filepath = “C:\location of log file folders from previous PS script\”
+$hostlist = Get-content “C:\location to text file with computer host names called hostlist.txt”
+$file = “debug”’
+$destinationfile = “C:\location where you want the results stored\reports.csv”
+$result = @()
+$listofterms = @()
+
+
+#delete report.csv if it exists. Ensures previous runs of the script do not overlap
+if (Test-Path $destinationfile ) {
+	Remove-Item $destinationfile
+	Write-host “report.csv has been deleted”
+}
+
+#define a list of terms to search
+#pulls the name of each host one by one from the host list
+for each ($host in $hostlist) {
+#Goes into each host's log files folder and grabs the line that contains the “input the pattern you want the string to match.”
+	$terms = Get-Childitem -PATH “$filepath\$hvd\$file” | Select-String -Pattern ‘input the pattern you want the string to match’ -Simplematch
+	for each ($line in $terms) {
+		if ($line -match ‘, name=([^,]+), user=’)
+		{
+			$termsearch = $Matches[1]
+		}
+		if ($listofterms -notcontains $termsearch)
+		{
+			$listofterms += $termsearch
+		}
+}
+}
